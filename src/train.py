@@ -24,3 +24,11 @@ print("R2 Score:", r2)
 
 joblib.dump(model, "C:\\Users\\USER\\OneDrive\\Documents\\Student-Performance-Ml-pj\\models\\model.pkl")
 joblib.dump(scaler, "C:\\Users\\USER\\OneDrive\\Documents\\Student-Performance-Ml-pj\\models\\scaler.pkl")
+joblib.dump(X.columns, "C:\\Users\\USER\\OneDrive\\Documents\\Student-Performance-Ml-pj\\models\\columns.pkl")
+
+metrics = {
+    "mse": mse,
+    "r2": r2
+}
+
+joblib.dump(metrics, "C:\\Users\\USER\\OneDrive\\Documents\\Student-Performance-Ml-pj\\models\\metrics.pkl")
