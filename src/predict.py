@@ -10,17 +10,12 @@ columns = joblib.load("models/columns.pkl")
 
 def predict_student(data: pd.DataFrame):
     
-
-    # Ensure correct column order
     data = data.reindex(columns=columns, fill_value=0)
 
-    # Scale input
     data_scaled = scaler.transform(data)
 
-    # Predict grade
     prediction = model.predict(data_scaled)[0]
 
-    # Confidence range from individual trees
     tree_predictions = [tree.predict(data_scaled)[0] for tree in model.estimators_]
 
     lower = np.percentile(tree_predictions, 10)
